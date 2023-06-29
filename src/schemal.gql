@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Broker {
+  id: Int!
+  name: String!
+  email: String!
+  phone: String!
+  address: String
+}
+
+type Query {
+  brokers: [Broker!]!
+  broker(id: Int!): Broker!
+}
+
+type Mutation {
+  createBroker(createBrokerInput: CreateBrokerInput!): Broker!
+  updateBroker(updateBrokerInput: UpdateBrokerInput!): Broker!
+  removeBroker(id: Int!): Broker!
+}
+
+input CreateBrokerInput {
+  name: String!
+  email: String!
+  phone: String!
+  address: String
+}
+
+input UpdateBrokerInput {
+  name: String
+  email: String
+  phone: String
+  address: String
+  id: Int!
+}

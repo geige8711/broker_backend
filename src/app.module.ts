@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
+import { BrokersModule } from './brokers/brokers.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { join } from 'path';
       autoLoadEntities: true,
       synchronize: true, // production site should be disabled;
     }),
+    BrokersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
