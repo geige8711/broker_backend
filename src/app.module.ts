@@ -7,6 +7,7 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { BrokersModule } from './brokers/brokers.module';
+import { AuthModule } from './users/auth.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { BrokersModule } from './brokers/brokers.module';
       synchronize: true, // production site should be disabled;
     }),
     BrokersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

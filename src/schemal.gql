@@ -10,15 +10,34 @@ type Broker {
   address: String
 }
 
+type User {
+  id: Int!
+  username: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+}
+
+type TokenOutput {
+  token: String!
+}
+
 type Query {
   brokers: [Broker!]!
   broker(id: Int!): Broker!
+  users: [User!]!
+  user(id: Int!): User!
+  currentUser: User
 }
 
 type Mutation {
   createBroker(createBrokerInput: CreateBrokerInput!): Broker!
   updateBroker(updateBrokerInput: UpdateBrokerInput!): Broker!
   removeBroker(id: Int!): Broker!
+  login(input: LoginInput!): TokenOutput!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
 }
 
 input CreateBrokerInput {
@@ -33,5 +52,29 @@ input UpdateBrokerInput {
   email: String
   phone: String
   address: String
+  id: Int!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+  retypedPassword: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  username: String
+  password: String
+  retypedPassword: String
+  firstName: String
+  lastName: String
+  email: String
   id: Int!
 }
