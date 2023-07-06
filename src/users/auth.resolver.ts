@@ -14,7 +14,7 @@ export class AuthResolver {
   ): Promise<TokenOutput> {
     return new TokenOutput({
       token: this.authService.getTokenForUser(
-        await this.authService.validateUser(input.username, input.password),
+        await this.authService.validateUser(input.email, input.password),
       ),
     });
   }

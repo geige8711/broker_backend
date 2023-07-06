@@ -17,7 +17,7 @@ export class AuthService {
 
   public getTokenForUser(user: User): string {
     return this.jwtService.sign({
-      username: user.username,
+      username: user.email,
       sub: user.id,
     });
   }
@@ -26,18 +26,18 @@ export class AuthService {
     return await bcrypt.hash(password, 10);
   }
 
-  public async validateUser(username: string, password: string): Promise<User> {
+  public async validateUser(email: string, password: string): Promise<User> {
     const user = await this.userRepository.findOne({
-      where: { username },
+      where: { email },
     });
 
     if (!user) {
-      this.logger.debug(`User ${username} not found!`);
+      this.logger.debug(`Email ${email} not found!`);
       throw new UnauthorizedException();
     }
 
     if (!(await bcrypt.compare(password, user.password))) {
-      this.logger.debug(`Invalid credentials for user ${username}`);
+      this.logger.debug(`Invalid credentials for email ${email}`);
       throw new UnauthorizedException();
     }
 
