@@ -1,0 +1,32 @@
+name: broker_backend CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types:
+      - closed
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: |
+          yarn
+          yarn build
+
+# if_merged:
+#     if: github.event.pull_request.merged == true
+#     build:
+#         runs-on: self-hosted
+#     steps:
+#         - uses: actions/checkout@v2
+#         - name: Use Node.js ${{ matrix.node-version }}
+#           uses: actions/setup-node@v1
+#           with:
+#               node-version: ${{ matrix.node-version }}
