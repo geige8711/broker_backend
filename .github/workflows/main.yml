@@ -19,6 +19,8 @@ jobs:
       - run: |
           yarn
           yarn build
+          cp /var/www/.env ./
+          pm2 reload 0
 
 # if_merged:
 #     if: github.event.pull_request.merged == true
