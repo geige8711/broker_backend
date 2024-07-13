@@ -4,10 +4,18 @@
 
 type Broker {
   id: Int!
-  name: String!
-  email: String!
-  phone: String!
-  address: String
+  brokerBusinessName: String!
+  brokerBusinessEmail: String!
+  registrationType: String!
+  registrationTypeNumber: String!
+  licenseType: String!
+  licenseNumber: String!
+  brokerBusinessMobile: String!
+  brokerBusinessAddress: String
+  brokerBusinessCity: String
+  brokerBusinessPostcode: String
+  brokerBusinessState: String
+  brokerBusinessSuburb: String
 }
 
 type User {
@@ -41,15 +49,23 @@ type Mutation {
 }
 
 input CreateBrokerInput {
-  name: String!
-  email: String!
+  brokerBusinessName: String!
+  brokerBusinessEmail: String!
+  registrationType: String!
+  registrationTypeNumber: String!
+  licenseType: String!
+  licenseNumber: String!
   phone: String!
   address: String
 }
 
 input UpdateBrokerInput {
-  name: String
-  email: String
+  brokerBusinessName: String
+  brokerBusinessEmail: String
+  registrationType: String
+  registrationTypeNumber: String
+  licenseType: String
+  licenseNumber: String
   phone: String
   address: String
   id: Int!
