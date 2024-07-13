@@ -10,17 +10,49 @@ export class Broker {
 
   @Column()
   @Field()
-  name: string;
+  brokerBusinessName: string;
 
   @Column()
   @Field()
-  email: string;
+  brokerBusinessEmail: string;
 
   @Column()
   @Field()
-  phone: string;
+  registrationType: string;
+
+  @Column()
+  @Field()
+  registrationTypeNumber: string;
+
+  @Column()
+  @Field()
+  licenseType: string;
+
+  @Column()
+  @Field()
+  licenseNumber: string;
+
+  @Column()
+  @Field()
+  brokerBusinessMobile: string;
 
   @Column({ nullable: true })
   @Field({ nullable: true })
-  address?: string;
+  brokerBusinessAddress?: string;
+
+  @Column({ nullable: true })
+  @Field({ nullable: true })
+  brokerBusinessCity?: string;
+
+  @Column({ nullable: true })
+  @Field({ nullable: true })
+  brokerBusinessPostcode?: string;
+
+  @Column({ nullable: true })
+  @Field({ nullable: true })
+  brokerBusinessState?: string;
+
+  @Column({ nullable: true })
+  @Field({ nullable: true })
+  brokerBusinessSuburb?: string;
 }

@@ -5,10 +5,22 @@ import { IsAlpha } from 'class-validator';
 export class CreateBrokerInput {
   @IsAlpha()
   @Field()
-  name: string;
+  brokerBusinessName: string;
 
   @Field()
-  email: string;
+  brokerBusinessEmail: string;
+
+  @Field()
+  registrationType: string;
+
+  @Field()
+  registrationTypeNumber: string;
+
+  @Field()
+  licenseType: string;
+
+  @Field()
+  licenseNumber: string;
 
   @Field()
   phone: string;
